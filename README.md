@@ -1,66 +1,24 @@
-## テーブル設計
+# README
 
-## users テーブル
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| name     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
-| birthday | string | null: false |
+Things you may want to cover:
 
-### Association
- 
-- has_many : items
-- has_many : prchase
+* Ruby version
 
-## items テーブル
+* System dependencies
 
-| Column      | Type       | Options                         |
-| ----------- | ---------- | ------------------------------- |
-| seller      | string     | null: false                     |
-| category    | references | nnull: false, foreign_key: true |
-| condition   | string     | null: false                     |
-| charges     | text       | null: false                     |
-| area        | references | null: false, foreign_key: true  |
-| estimated   | references | null: false, foreign_key: true  |
-| name        | string     | null: false                     |
-| image       | string     | null: false                     |
-| money       | string     | null: false                     |
-| description | string     | null: false                     |
+* Configuration
 
-### Association
- 
-- has_one : prchase
-- belongs_to : user
+* Database creation
 
-## prchase テーブル
+* Database initialization
 
-| Column     | Type   | Options     |
-| ---------- | ------ | ----------- |
-| name       | string | null: false |
-| money      | string | null: false |
-| card       | text   | null: false |
-| expiration | text   | null: false |
-| security   | text   | null: false |
+* How to run the test suite
 
-### Association
- 
-- belongs_to : user
-- belongs_to : items
-- has_one : street
+* Services (job queues, cache servers, search engines, etc.)
 
-## street テーブル
+* Deployment instructions
 
-| Column       | Type       | Options                        |
-| ----------   | ---------- | ------------------------------ |
-| postal       | text       | null: false                    |
-| prefectures  | references | null: false, foreign_key: true |
-| municipality | references | null: false, foreign_key: true |
-| address      | string     | null: false                    |
-| building     | string     | null: false                    |
-| phone        | text       | null: false                    |
-
-### Association
- 
-- belongs_to : prchase
+* ...
