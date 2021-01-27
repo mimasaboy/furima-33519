@@ -8,8 +8,8 @@
 | email              | string | null: false, unique: true |
 | encrypted_password | string | null: false               |
 | birthday           | date   | null: false               |
-| last               | string | null: false               |
-| first              | string | null: false               |
+| last_name          | string | null: false               |
+| first_name         | string | null: false               |
 | lastf              | string | null: false               |
 | firstf             | string | null: false               |
 
