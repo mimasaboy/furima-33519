@@ -5,7 +5,7 @@
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | name               | string | null: false |
-| email              | string | null: false |
+| unique             | string | null: false |
 | encrypted_password | string | null: false |
 | birthday           | date   | null: false |
 | last               | string | null: false |
@@ -16,33 +16,33 @@
 ### Association
  
 - has_many : items
-- has_many : prchase
+- has_many : purchases
 
 ## items テーブル
 
-| Column         | Type    | Options                         |
-| -------------- | ------- | ------------------------------- |
-| seller         | string  | null: false                     |
-| category_id    | integer | null: false, foreign_key: true  |
-| condition_id   | integer | null: false                     |
-| charges_id     | integer | null: false                     |
-| area_id        | integer | null: false, foreign_key: true  |
-| estimated_id   | integer | null: false, foreign_key: true  |
-| name           | string  | null: false                     |
-| money_id       | integer | null: false                     |
-| description    | string  | null: false                     |
+| Column         | Type    | Options     |
+| -------------- | ------- | ----------- |
+| user           | string  | null: false |
+| category_id    | integer | null: false |
+| condition_id   | integer | null: false |
+| charges_id     | integer | null: false |
+| area_id        | integer | null: false |
+| estimated_id   | integer | null: false |
+| name           | string  | null: false | 
+| money          | integer | null: false |
+| description    | string  | null: false |
 
 ### Association
  
-- has_one : prchase
+- has_one : purchase
 - belongs_to : user
 
-## prchases テーブル
+## purchases テーブル
 
 | Column     | Type   | Options     |
 | ---------- | ------ | ----------- |
-| name       | string | null: false |
-| money      | string | null: false |
+| user       | string | null: false |
+| item       | string | null: false |
 
 ### Association
  
@@ -50,7 +50,7 @@
 - belongs_to : item
 - has_one : street
 
-## street テーブル
+## streets テーブル
 
 | Column       | Type       | Options                        |
 | ----------   | ---------- | ------------------------------ |
@@ -63,4 +63,4 @@
 
 ### Association
  
-- belongs_to : prchase
+- belongs_to : purchase
