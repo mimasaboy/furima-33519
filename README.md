@@ -1,24 +1,67 @@
-# README
+## テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| name               | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| birthday           | date   | null: false               |
+| last_name          | string | null: false               |
+| first_name         | string | null: false               |
+| lastf              | string | null: false               |
+| firstf             | string | null: false               |
 
-* Ruby version
+### Association
+ 
+- has_many : items
+- has_many : purchases
 
-* System dependencies
+## items テーブル
 
-* Configuration
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| user           | references | null: false, foreign_key: true |
+| category_id    | integer    | null: false                    |
+| condition_id   | integer    | null: false                    |
+| charges_id     | integer    | null: false                    |
+| area_id        | integer    | null: false                    |
+| estimated_id   | integer    | null: false                    |
+| name           | string     | null: false                    | 
+| money          | integer    | null: false                    |
+| description    | text       | null: false                    |
 
-* Database creation
+### Association
+ 
+- has_one : purchase
+- belongs_to : user
 
-* Database initialization
+## purchases テーブル
 
-* How to run the test suite
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| user       | references | null: false, foreign_key: true |
+| item       | references | null: false, foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+ 
+- belongs_to : user
+- belongs_to : item
+- has_one : street
 
-* Deployment instructions
+## streets テーブル
 
-* ...
+| Column       | Type       | Options                        |
+| ----------   | ---------- | ------------------------------ |
+| postal       | string     | null: false                    |
+| area_id      | integer    | null: false                    |
+| purchase     | references | null: false, foreign_key: true |
+| address      | string     | null: false                    |
+| building     | string     | 
+| phone        | string     | null: false                    |
+| municipality | string     | null: false                    |
+
+### Association
+ 
+- belongs_to : purchase
