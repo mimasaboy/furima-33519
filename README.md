@@ -2,12 +2,16 @@
 
 ## users テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| name     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
-| birthday | string | null: false |
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| name               | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
+| birthday           | date   | null: false |
+| last               | string | null: false |
+| first              | string | null: false |
+| lastf              | string | null: false |
+| firstf             | string | null: false |
 
 ### Association
  
@@ -16,38 +20,34 @@
 
 ## items テーブル
 
-| Column      | Type       | Options                         |
-| ----------- | ---------- | ------------------------------- |
-| seller      | string     | null: false                     |
-| category    | references | nnull: false, foreign_key: true |
-| condition   | string     | null: false                     |
-| charges     | text       | null: false                     |
-| area        | references | null: false, foreign_key: true  |
-| estimated   | references | null: false, foreign_key: true  |
-| name        | string     | null: false                     |
-| image       | string     | null: false                     |
-| money       | string     | null: false                     |
-| description | string     | null: false                     |
+| Column         | Type    | Options                         |
+| -------------- | ------- | ------------------------------- |
+| seller         | string  | null: false                     |
+| category_id    | integer | null: false, foreign_key: true  |
+| condition_id   | integer | null: false                     |
+| charges_id     | integer | null: false                     |
+| area_id        | integer | null: false, foreign_key: true  |
+| estimated_id   | integer | null: false, foreign_key: true  |
+| name           | string  | null: false                     |
+| money_id       | integer | null: false                     |
+| description    | string  | null: false                     |
 
 ### Association
  
 - has_one : prchase
 - belongs_to : user
 
-## prchase テーブル
+## prchases テーブル
 
 | Column     | Type   | Options     |
 | ---------- | ------ | ----------- |
 | name       | string | null: false |
 | money      | string | null: false |
-| card       | text   | null: false |
-| expiration | text   | null: false |
-| security   | text   | null: false |
 
 ### Association
  
 - belongs_to : user
-- belongs_to : items
+- belongs_to : item
 - has_one : street
 
 ## street テーブル
