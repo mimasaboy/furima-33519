@@ -10,8 +10,8 @@
 | birthday           | date   | null: false               |
 | last_name          | string | null: false               |
 | first_name         | string | null: false               |
-| lastf              | string | null: false               |
-| firstf             | string | null: false               |
+| last_name_f        | string | null: false               |
+| first_name_f       | string | null: false               |
 
 ### Association
  
